@@ -1,844 +1,670 @@
 <!DOCTYPE html>
 <html>
-<script id="allow-copy_script">(function agent() {
-        let unlock = false
-        document.addEventListener('allow_copy', (event) => {
-            unlock = event.detail.unlock
-        })
-
-        const copyEvents = [
-            'copy',
-            'cut',
-            'contextmenu',
-            'selectstart',
-            'mousedown',
-            'mouseup',
-            'mousemove',
-            'keydown',
-            'keypress',
-            'keyup',
-        ]
-        const rejectOtherHandlers = (e) => {
-            if (unlock) {
-                e.stopPropagation()
-                if (e.stopImmediatePropagation) e.stopImmediatePropagation()
-            }
-        }
-        copyEvents.forEach((evt) => {
-            document.documentElement.addEventListener(evt, rejectOtherHandlers, {
-                capture: true,
-            })
-        })
-    })()</script>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta http-equiv="cache-control" content="max-age=0">
-    <meta http-equiv="cache-control" content="no-cache">
-    <meta http-equiv="expires" content="0">
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
-    <meta http-equiv="pragma" content="no-cache">
-    <meta name="google-site-verification" content="cMKyqtwU-RLzUDskVp8pBrqGB-BRbPHK6Yr3v6owgtc">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta
+      name="google-site-verification"
+      content="cMKyqtwU-RLzUDskVp8pBrqGB-BRbPHK6Yr3v6owgtc"
+    />
     <title>Paytm Payments Bank</title>
-    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
     <title>Paytm Payments Bank</title>
     <style type="text/css">
-        .home-notification {
-            display: block !important;
+      .home-notification {
+        display: block !important;
+      }
+
+      #mainBanner #imgContainer .mobileImg {
+        margin-top: -100px;
+      }
+
+      .homepage-mobile-img img {
+        width: 235px;
+      }
+
+      .newmenu ul li .mega-menu.adujust-space {
+        top: 112px !important;
+      }
+
+      .newmenu ul li:hover .mega-menu.adujust-space {
+        top: 122px !important;
+      }
+
+      .mySlides {
+        display: none;
+        text-align: center;
+      }
+
+      .mySlides img {
+        vertical-align: middle;
+        max-height: 90vh;
+        max-width: 100%;
+      }
+
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .dots {
+        text-align: center;
+        position: absolute;
+        width: 100%;
+        bottom: 5px;
+      }
+
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #fff;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active,
+      .dot:hover {
+        background-color: #717171;
+      }
+
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
         }
 
-        #mainBanner #imgContainer .mobileImg {
-            margin-top: -100px;
+        to {
+          opacity: 1;
         }
+      }
 
-        .homepage-mobile-img img {
-            width: 235px;
-        }
+      .rbi_ios.modal {
+        background-color: rgb(16 16 16 / 50%);
+      }
 
-        .newmenu ul li .mega-menu.adujust-space {
-            top: 112px !important;
-        }
+      .rbi_ios .modal-content {
+        width: 65% !important;
+      }
 
-        .newmenu ul li:hover .mega-menu.adujust-space {
-            top: 122px !important;
-        }
+      .rbi_ios .close-button {
+        top: 1px;
+        right: 1px;
+      }
 
-        /*.homepage-ads{background: #E8F8FD; padding: 80px 0;}
-  .homepage-ads h3{text-align: center; font-weight: 600; color: #002970; font-size: 36px; line-height: 46px; margin: 0 0 10px}
-  .homepage-ads p{text-align: center; font-weight: 500; color: #000; font-size: 17px; line-height: 25px; margin: 0 0 60px}
-  .homepage-ads .section{display: flex; flex-wrap: wrap; max-width: 1062px; margin: 0 auto;}
-  .homepage-ads .section img{display: block; width: calc(33.33% - 88px); margin: 0 44px; border: none;}
-
-  @media (max-width: 767px){
-    .homepage-ads h3{font-size: 24px; line-height: 30px;}
-    .homepage-ads p{font-size: 15px; line-height: 20px; margin: 0 0 30px;}
-    .homepage-ads .section{width: 90%;}
-    .homepage-ads .section img{width: 100%; margin: 0 0 15px;}
-  }*/
-
-        .mySlides {
-            display: none;
-            text-align: center;
-        }
-
-        .mySlides img {
-            vertical-align: middle;
-            max-height: 90vh;
-            max-width: 100%;
-        }
-
-        .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
-        }
-
+      @media only screen and (max-width: 300px) {
         .prev,
-        .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            user-select: none;
-            background-color: rgba(0, 0, 0, 0.4);
+        .next,
+        .text {
+          font-size: 11px;
         }
-
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .dots {
-            text-align: center;
-            position: absolute;
-            width: 100%;
-            bottom: 5px;
-        }
-
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #fff;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
-
-        .active,
-        .dot:hover {
-            background-color: #717171;
-        }
-
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-
-        @keyframes fade {
-            from {
-                opacity: .4
-            }
-
-            to {
-                opacity: 1
-            }
-        }
-
-        .rbi_ios.modal {
-            background-color: rgb(16 16 16 / 50%);
-        }
-
-        .rbi_ios .modal-content {
-            width: 65% !important;
-        }
-
-        .rbi_ios .close-button {
-            top: 1px;
-            right: 1px;
-        }
-
-        @media only screen and (max-width: 300px) {
-
-            .prev,
-            .next,
-            .text {
-                font-size: 11px
-            }
-        }
+      }
     </style>
+    <link
+      href="https://s.go-mpulse.net/boomerang/NL3QP-QJWK5-K6N8K-5BABZ-8D4P5"
+      rel="preload"
+      as="script"
+    />
+    <link rel="stylesheet" href="/fonts/gilroy/gilroy-font.css" />
+  </head>
 
-    <script>(window.BOOMR_mq = window.BOOMR_mq || []).push(["addVar", { "rua.upush": "true", "rua.cpush": "true", "rua.upre": "false", "rua.cpre": "false", "rua.uprl": "false", "rua.cprl": "false", "rua.cprf": "false", "rua.trans": "SJ-117b6543-29e8-44d3-9744-0ba02cc31510", "rua.cook": "false", "rua.ims": "false", "rua.ufprl": "false", "rua.cfprl": "false", "rua.isuxp": "false", "rua.texp": "norulematch" }]);</script>
-    <script>!function (e) { var n = "https://s.go-mpulse.net/boomerang/"; if ("False" == "True") e.BOOMR_config = e.BOOMR_config || {}, e.BOOMR_config.PageParams = e.BOOMR_config.PageParams || {}, e.BOOMR_config.PageParams.pci = !0, n = "https://s2.go-mpulse.net/boomerang/"; if (window.BOOMR_API_key = "NL3QP-QJWK5-K6N8K-5BABZ-8D4P5", function () { function e() { if (!o) { var e = document.createElement("script"); e.id = "boomr-scr-as", e.src = window.BOOMR.url, e.async = !0, i.parentNode.appendChild(e), o = !0 } } function t(e) { o = !0; var n, t, a, r, d = document, O = window; if (window.BOOMR.snippetMethod = e ? "if" : "i", t = function (e, n) { var t = d.createElement("script"); t.id = n || "boomr-if-as", t.src = window.BOOMR.url, BOOMR_lstart = (new Date).getTime(), e = e || d.body, e.appendChild(t) }, !window.addEventListener && window.attachEvent && navigator.userAgent.match(/MSIE [67]\./)) return window.BOOMR.snippetMethod = "s", void t(i.parentNode, "boomr-async"); a = document.createElement("IFRAME"), a.src = "about:blank", a.title = "", a.role = "presentation", a.loading = "eager", r = (a.frameElement || a).style, r.width = 0, r.height = 0, r.border = 0, r.display = "none", i.parentNode.appendChild(a); try { O = a.contentWindow, d = O.document.open() } catch (_) { n = document.domain, a.src = "javascript:var d=document.open();d.domain='" + n + "';void(0);", O = a.contentWindow, d = O.document.open() } if (n) d._boomrl = function () { this.domain = n, t() }, d.write("<bo" + "dy onload='document._boomrl();'>"); else if (O._boomrl = function () { t() }, O.addEventListener) O.addEventListener("load", O._boomrl, !1); else if (O.attachEvent) O.attachEvent("onload", O._boomrl); d.close() } function a(e) { window.BOOMR_onload = e && e.timeStamp || (new Date).getTime() } if (!window.BOOMR || !window.BOOMR.version && !window.BOOMR.snippetExecuted) { window.BOOMR = window.BOOMR || {}, window.BOOMR.snippetStart = (new Date).getTime(), window.BOOMR.snippetExecuted = !0, window.BOOMR.snippetVersion = 12, window.BOOMR.url = n + "NL3QP-QJWK5-K6N8K-5BABZ-8D4P5"; var i = document.currentScript || document.getElementsByTagName("script")[0], o = !1, r = document.createElement("link"); if (r.relList && "function" == typeof r.relList.supports && r.relList.supports("preload") && "as" in r) window.BOOMR.snippetMethod = "p", r.href = window.BOOMR.url, r.rel = "preload", r.as = "script", r.addEventListener("load", e), r.addEventListener("error", function () { t(!0) }), setTimeout(function () { if (!o) t(!0) }, 3e3), BOOMR_lstart = (new Date).getTime(), i.parentNode.appendChild(r); else t(!1); if (window.addEventListener) window.addEventListener("load", a, !1); else if (window.attachEvent) window.attachEvent("onload", a) } }(), "".length > 0) if (e && "performance" in e && e.performance && "function" == typeof e.performance.setResourceTimingBufferSize) e.performance.setResourceTimingBufferSize(); !function () { if (BOOMR = e.BOOMR || {}, BOOMR.plugins = BOOMR.plugins || {}, !BOOMR.plugins.AK) { var n = "true" == "true" ? 1 : 0, t = "", a = "eqeubqiaglokijafaiabmmajvfscqakk-f-b6a050cc1-clienttons-s.akamaihd.net", i = "false" == "true" ? 2 : 1, o = { "ak.v": "34", "ak.cp": "808002", "ak.ai": parseInt("508946", 10), "ak.ol": "0", "ak.cr": 114, "ak.ipv": 6, "ak.proto": "h2", "ak.rid": "2402e702", "ak.r": 32607, "ak.a2": n, "ak.m": "dscj", "ak.n": "essl", "ak.bpcip": "2409:40c1:32:dca4::", "ak.cport": 55488, "ak.gh": "49.44.138.164", "ak.quicv": "", "ak.tlsv": "tls1.3", "ak.0rtt": "", "ak.csrc": "-", "ak.acc": "", "ak.t": "1680343370", "ak.ak": "hOBiQwZUYzCg5VSAfCLimQ==be5x/NzWp+UqmxlVXHC3vx5wt6gjtdjBxfbiPKebwR/j/HC6WYvnqr3X/omNg9V73rjC/qK43q7/Um6q/DscZ8pb0ZT6i3kZe+33AXdiW+DV40hYgdtlNnxO+ZPdzysqJoJHkBZUSY7XVok4S03IaS1C9IUtTAakq0VHLpvbw9Dli8WdltbUEZGAdwMiT5Nnh5AaVQxAB03ekHKB2a0W8UEAsTx/+gZL2pwaE2co6zol1agsRvy35gCUGGQRd5jXODBtTvhmvA86IIzbbw+iUicKEgshnlQmf+DVfd+2sWfw/XuQRtw4Wo6P4csgLrrCMW+bu14mbjBY75wIxMbie5e5DaHoc++B/qXDB7yxHywTJepaikXW9vcBXVXlXs8t/ePO7alQghZ/zr5KhbnAO5UtHNqXL3kDpo6i2UGfCpo=", "ak.pv": "15", "ak.dpoabenc": "", "ak.tf": i }; if ("" !== t) o["ak.ruds"] = t; var r = { i: !1, av: function (n) { var t = "http.initiator"; if (n && (!n[t] || "spa_hard" === n[t])) o["ak.feo"] = void 0 !== e.aFeoApplied ? 1 : 0, BOOMR.addVar(o) }, rv: function () { var e = ["ak.bpcip", "ak.cport", "ak.cr", "ak.csrc", "ak.gh", "ak.ipv", "ak.m", "ak.n", "ak.ol", "ak.proto", "ak.quicv", "ak.tlsv", "ak.0rtt", "ak.r", "ak.acc", "ak.t", "ak.tf"]; BOOMR.removeVar(e) } }; BOOMR.plugins.AK = { akVars: o, akDNSPreFetchDomain: a, init: function () { if (!r.i) { var e = BOOMR.subscribe; e("before_beacon", r.av, null, null), e("onbeacon", r.rv, null, null), r.i = !0 } return this }, is_complete: function () { return !0 } } } }() }(window);</script>
-    <link href="https://s.go-mpulse.net/boomerang/NL3QP-QJWK5-K6N8K-5BABZ-8D4P5" rel="preload" as="script">
-    <script src="https://www.paytmbank.com/hawkeyeweb/hawkeye_1.3.0.min.js" async=""></script>
-    <script id="boomr-scr-as" src="https://s.go-mpulse.net/boomerang/NL3QP-QJWK5-K6N8K-5BABZ-8D4P5" async=""></script>
-</head>
-
-<body class="" style="padding-top: 122px;">
-
-    <div class="header_include" style="opacity: 1;">
-        <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" type="text/css" href="/includes/newheader.css">
-        <div id="headerMain">
-            <div class="notification-bar home-notification">
-                <marquee id="marquee_home">Dear customers, we value your relationship and continued trust in the Bank.
-                    We are taking the necessary steps to comply with the directions of RBI. We assure you that the
-                    recent RBI direction will not impact our existing customers in any way and they can continue to use
-                    our banking services seamlessly. Your balances with Paytm Payments Bank are fully secure.</marquee>
-            </div>
-            <div class="notification-bar rates-notification">
-                <marquee id="marquee_rates">From 9th December, 2022 adding Money to Wallet through Net Banking (other
-                    than through Paytm Payments Bank) will be charged up to 1.5% (exc. of GST).<span
-                        style="display: inline-block; width:30px"></span>|<span
-                        style="display: inline-block; width:30px"></span>Charges for cheque dishonour due to financial
-                    reason: Rs.500</marquee>
-            </div>
-            <div class="newheader">
-                <div class="header-box">
-                    <div class="header-container">
-                        <div class="mobile-menu-handler">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="newlogo">
-                            <a href="/home"><img src="/img/common/paytmbank-logo.svg" width="180" height="31"
-                                    alt="Paytm Payments Bank"></a>
-                        </div>
-                        <div class="newmenu adujust-menu-space">
-                            <ul>
-                                <li>
-                                    <span>Personal Banking</span>
-                                    <div class="mega-menu adujust-space"
-                                        style="display: block; transition: all 0.5s ease 0s;">
-                                        <ul>
-                                            <li class="submenu-list">
-                                                <a href="/business-banking/saving-account">
-                                                    <div class="submenu-list-icon">
-                                                        <img src="/img/common/header/saving-account-icn.svg">
-                                                    </div>
-                                                    <div class="submenu-list-text">
-                                                        <div class="submenu-list-title">
-                                                            Savings Account
-                                                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                                    stroke="black" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                </path>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="submenu-list-subtext">
-                                                            Experience the new way of saving money
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="submenu-list">
-                                                <a href="/business-banking/paytm-wallet">
-                                                    <div class="submenu-list-icon">
-                                                        <img src="/img/common/header/paytm-wallet-icn.svg"
-                                                            alt="paytm wallet">
-                                                    </div>
-                                                    <div class="submenu-list-text">
-                                                        <div class="submenu-list-title">
-                                                            Paytm Wallet
-                                                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                                    stroke="black" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                </path>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="submenu-list-subtext">
-                                                            The fastest and most accepted wallet
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="submenu-list">
-                                                <a href="/business-banking/debit-cards">
-                                                    <div class="submenu-list-icon">
-                                                        <img src="/img/common/header/debit-cards-icn.svg"
-                                                            alt="debid card">
-                                                    </div>
-                                                    <div class="submenu-list-text">
-                                                        <div class="submenu-list-title">
-                                                            Debit Cards
-                                                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                                    stroke="black" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                </path>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="submenu-list-subtext">
-                                                            For quick payments and cash withdrawals
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="submenu-list">
-                                                <a href="/business-banking/paytm-ka-atm">
-                                                    <div class="submenu-list-icon">
-                                                        <img src="/img/common/header/paytm-ka-atm-icn.svg">
-                                                    </div>
-                                                    <div class="submenu-list-text">
-                                                        <div class="submenu-list-title">
-                                                            Paytm Ka ATM
-                                                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                                    stroke="black" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                </path>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="submenu-list-subtext">
-                                                            Your nearby shop for all your banking needs
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="submenu-list">
-                                                <a href="/business-banking/fastag">
-                                                    <div class="submenu-list-icon">
-                                                        <img src="/img/common/header/fastag-icn.svg" alt="fastag">
-                                                    </div>
-                                                    <div class="submenu-list-text">
-                                                        <div class="submenu-list-title">
-                                                            FASTag
-                                                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                                    stroke="black" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                </path>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="submenu-list-subtext">
-                                                            Zip through tolls like a VIP
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span>Business Banking</span>
-                                    <div class="mega-menu adujust-space"
-                                        style="display: block; transition: all 0.5s ease 0s;">
-                                        <ul>
-                                            <li class="submenu-list">
-                                                <a href="/business-banking/business-account">
-                                                    <div class="submenu-list-icon">
-                                                        <img src="/img/common/header/business-account-icn.svg">
-                                                    </div>
-                                                    <div class="submenu-list-text">
-                                                        <div class="submenu-list-title">
-                                                            Business Account
-                                                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                                    stroke="black" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                </path>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="submenu-list-subtext">
-                                                            Zero balance current account for all your payment needs
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="submenu-list">
-                                                <a href="/salary-account">
-                                                    <div class="submenu-list-icon">
-                                                        <img src="/img/common/header/salary-account-icn.svg"
-                                                            alt="salary account">
-                                                    </div>
-                                                    <div class="submenu-list-text">
-                                                        <div class="submenu-list-title">
-                                                            Salary Account
-                                                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                                    stroke="black" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                </path>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="submenu-list-subtext">
-                                                            Account that works as hard as you
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="submenu-list">
-                                                <a href="/business-banking/nodal-account">
-                                                    <div class="submenu-list-icon">
-                                                        <img src="/img/common/header/nodal-account-icn.svg"
-                                                            alt="nodal account">
-                                                    </div>
-                                                    <div class="submenu-list-text">
-                                                        <div class="submenu-list-title">
-                                                            Nodal Account
-                                                            <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <path
-                                                                    d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                                    stroke="black" stroke-width="1.5"
-                                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                                </path>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="submenu-list-subtext">
-                                                            Manage payments and transfers for your enterprise
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span>Company</span>
-                                    <div class="small-menu" style="display: block; transition: all 0.5s ease 0s;">
-                                        <ul>
-                                            <li><a href="/about">About Us
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                            <li><a href="/board-of-directors">Board Of Directors
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                            <li><a href="https://www.paytmbank.com/blog/">Blog
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                            <li><a href="/contact">Contact Us
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                            <li><a href="https://jobs.lever.co/paytmbank" target="_blank">Careers
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span>Support</span>
-                                    <div class="small-menu" style="display: block; transition: all 0.5s ease 0s;">
-                                        <ul>
-                                            <li><a href="/ratesCharges">Rates &amp; Charges
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                            <li><a href="/faqs">FAQs
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="for-mobile"><a href="https://netbanking.paytmbank.com/">Netbanking Login</a>
-                                </li>
-                                <li class="for-mobile">
-                                    <span>Open Account</span>
-                                    <div class="small-menu" style="display: block; transition: all 0.5s ease 0s;">
-                                        <ul>
-                                            <li><a href="/AccountOpening">Saving Account
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                            <li><a href="/salary-account">Salary Account
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                            <li><a href="/Forms/paytm-payments-bank-current-account-registration-form">Current
-                                                    Account
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="menu-buttons">
-                            <ul>
-                                <li>
-                                    <a href="https://netbanking.paytmbank.com/"
-                                        class="header-button-web no-bgcolor-button">Netbanking Login</a>
-                                </li>
-                                <li>
-                                    <a class="header-button-web bgcolor-button">Open Account</a>
-                                    <div class="small-menu" style="display: block; transition: all 0.5s ease 0s;">
-                                        <ul>
-                                            <li><a href="/AccountOpening">Saving Account
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                            <li><a href="/salary-account">Salary Account
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                            <li><a href="/Forms/paytm-payments-bank-current-account-registration-form">Current
-                                                    Account
-                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
-                                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg>
-                                                </a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <body class="" style="padding-top: 122px">
+    <div class="header_include" style="opacity: 1">
+      <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+      <link rel="stylesheet" type="text/css" href="includes/newheader.css" />
+      <div id="headerMain">
+        <div class="notification-bar home-notification">
+          <marquee id="marquee_home"
+            >Dear customers, we value your relationship and continued trust in
+            the Bank. We are taking the necessary steps to comply with the
+            directions of RBI. We assure you that the recent RBI direction will
+            not impact our existing customers in any way and they can continue
+            to use our banking services seamlessly. Your balances with Paytm
+            Payments Bank are fully secure.</marquee
+          >
         </div>
+        <div class="notification-bar rates-notification">
+          <marquee id="marquee_rates"
+            >From 9th December, 2022 adding Money to Wallet through Net Banking
+            (other than through Paytm Payments Bank) will be charged up to 1.5%
+            (exc. of GST).<span
+              style="display: inline-block; width: 30px"
+            ></span
+            >|<span style="display: inline-block; width: 30px"></span>Charges
+            for cheque dishonour due to financial reason: Rs.500</marquee
+          >
+        </div>
+        <div class="newheader">
+          <div class="header-box">
+            <div class="header-container">
+              <div class="mobile-menu-handler">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="newlogo">
+                <a href="#"
+                  ><img src="img/common/citilogo.png" alt="City Bank"
+                /></a>
+              </div>
+              <div class="newmenu adujust-menu-space">
+                <ul>
+                  <li>
+                    <span>About Us</span>
+                  </li>
+                  <li>
+                    <span>How it Works</span>
+                  </li>
+                  <li>
+                    <span>Contacts</span>
+                  </li>
 
-        <script src="/js/jquery-3.6.0.min.js"></script>
-        <script>
-            function dblock(className) {
-                var elements = document.getElementsByClassName(className);
-                for (var i = 0; i < elements.length; i++) {
-                    elements[i].style.display = 'block';
-                }
-            }
-            function sMenuClass(className) {
-                var elements = document.getElementsByClassName(className);
-                for (var i = 0; i < elements.length; i++) {
-                    elements[i].parentElement.classList.add("submenu-mobile");
-                }
-            }
+                  <li class="for-mobile">
+                    <a href="login.html">Netbanking Login</a>
+                  </li>
+                  <li class="for-mobile">
+                    <span>Open Account</span>
+                    <div
+                      class="small-menu"
+                      style="display: block; transition: all 0.5s ease 0s"
+                    >
+                      <ul>
+                        <li>
+                          <a href="/AccountOpening"
+                            >Saving Account
+                            <svg
+                              width="11"
+                              height="11"
+                              viewBox="0 0 11 11"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              ></path>
+                            </svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/salary-account"
+                            >Salary Account
+                            <svg
+                              width="11"
+                              height="11"
+                              viewBox="0 0 11 11"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              ></path>
+                            </svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/Forms/paytm-payments-bank-current-account-registration-form"
+                            >Current Account
+                            <svg
+                              width="11"
+                              height="11"
+                              viewBox="0 0 11 11"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              ></path>
+                            </svg>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="menu-buttons">
+                <ul>
+                  <li>
+                    <a
+                      href="login.html"
+                      class="header-button-web no-bgcolor-button"
+                      >Netbanking Login</a
+                    >
+                  </li>
+                  <li>
+                    <a class="header-button-web bgcolor-button">Open Account</a>
+                    <div
+                      class="small-menu"
+                      style="display: block; transition: all 0.5s ease 0s"
+                    >
+                      <ul>
+                        <li>
+                          <a href="/AccountOpening"
+                            >Saving Account
+                            <svg
+                              width="11"
+                              height="11"
+                              viewBox="0 0 11 11"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              ></path>
+                            </svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="/salary-account"
+                            >Salary Account
+                            <svg
+                              width="11"
+                              height="11"
+                              viewBox="0 0 11 11"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              ></path>
+                            </svg>
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/Forms/paytm-payments-bank-current-account-registration-form"
+                            >Current Account
+                            <svg
+                              width="11"
+                              height="11"
+                              viewBox="0 0 11 11"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5.53553 2.05431L9.07107 5.58984L5.53553 9.12538"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              ></path>
+                            </svg>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="/js/jquery-3.6.0.min.js"></script>
+      <script>
+        function dblock(className) {
+          var elements = document.getElementsByClassName(className);
+          for (var i = 0; i < elements.length; i++) {
+            elements[i].style.display = "block";
+          }
+        }
+        function sMenuClass(className) {
+          var elements = document.getElementsByClassName(className);
+          for (var i = 0; i < elements.length; i++) {
+            elements[i].parentElement.classList.add("submenu-mobile");
+          }
+        }
+        if (window.innerWidth > 991) {
+          dblock("mega-menu");
+          dblock("small-menu");
+        } else {
+          sMenuClass("mega-menu");
+          sMenuClass("small-menu");
+        }
+        $(document).ready(function () {
+          $(".mobile-menu-handler").click(function () {
+            $(this).toggleClass("active");
+            $(".newmenu").slideToggle();
+          });
+          $(".submenu-mobile span").click(function () {
+            $(this).parent().toggleClass("active");
+            $(this).parent().siblings().removeClass("active");
+            $(this).parent().find(".mega-menu").slideToggle();
+            $(this).parent().siblings().find(".mega-menu").slideUp();
+            $(this).parent().find(".small-menu").slideToggle();
+            $(this).parent().siblings().find(".small-menu").slideUp();
+          });
+          var headerPos = $(".newheader").position().top;
+          if (headerPos > 26) {
             if (window.innerWidth > 991) {
-                dblock('mega-menu');
-                dblock('small-menu');
+              $("body").css("padding-top", 122);
             } else {
-                sMenuClass('mega-menu');
-                sMenuClass('small-menu');
+              $("body").css("padding-top", 92);
             }
-            $(document).ready(function () {
-                $('.mobile-menu-handler').click(function () {
-                    $(this).toggleClass('active');
-                    $('.newmenu').slideToggle();
-                });
-                $('.submenu-mobile span').click(function () {
-                    $(this).parent().toggleClass('active');
-                    $(this).parent().siblings().removeClass('active');
-                    $(this).parent().find('.mega-menu').slideToggle();
-                    $(this).parent().siblings().find('.mega-menu').slideUp();
-                    $(this).parent().find('.small-menu').slideToggle();
-                    $(this).parent().siblings().find('.small-menu').slideUp();
-                });
-                var headerPos = $('.newheader').position().top;
-                if (headerPos > 26) {
-                    if (window.innerWidth > 991) {
-                        $('body').css('padding-top', 122);
-                    } else {
-                        $('body').css('padding-top', 92);
-                    }
-                    $('.newmenu').addClass('adujust-menu-space');
-                    $('.newmenu ul li .mega-menu').addClass('adujust-space');
-                }
-                if (window.innerWidth > 991) {
-                    setTimeout(function () {
-                        $('.mega-menu, .small-menu').css('transition', 'all 0.5s');
-                    }, 1000);
-                }
-            });
-        </script>
+            $(".newmenu").addClass("adujust-menu-space");
+            $(".newmenu ul li .mega-menu").addClass("adujust-space");
+          }
+          if (window.innerWidth > 991) {
+            setTimeout(function () {
+              $(".mega-menu, .small-menu").css("transition", "all 0.5s");
+            }, 1000);
+          }
+        });
+      </script>
     </div>
 
     <div class="topPadd">
-        <div id="mainBanner" class="auto center">
-            <div id="imgContainer" class="auto">
-                <div class="bgImg">
-                    <div class="lightText">
-                        <span>No fear.</span> <br>
-                        <span>No greed.</span> <br>
-                        <span>No entitlement.</span>
-                    </div>
-                    <h2>India’s most sincere bank is here!</h2>
-                </div>
-                <div class="border"></div>
-                <div class="mobileImg homepage-mobile-img">
-                    <!-- <picture>
-          <source srcset="img/homepage-mobile-img.webp" type="image/webp">
-          <img src="img/homepage-mobile-img.svg" alt="">
-      </picture> -->
-                    <img src="img/homepage-mobile-img.svg" alt="">
-                </div>
+      <div id="mainBanner" class="auto center">
+        <div id="imgContainer" class="auto">
+          <div class="bgImg">
+            <div class="lightText">
+              <span>No fear.</span> <br />
+              <span>No greed.</span> <br />
+              <span>No entitlement.</span>
             </div>
+            <h2>India’s most sincere bank is here!</h2>
+          </div>
+          <div class="border"></div>
+          <div class="mobileImg homepage-mobile-img">
+            <img src="img/homepage-mobile-img.svg" alt="" />
+          </div>
         </div>
-        <div id="midcontainer">
-            <h1>
-                <p>Join the Revolution. </p>
-                <p class="blueBG">Start your Digital Savings Account today!</p>
-            </h1>
-            <div class="text">Paytm Payments Bank offers a Savings Account with no account opening charges or minimum
-                balance requirements. Keep upto Rs. 2 lac of deposits and enjoy benefits like:</div>
-            <div class="listing">
-                <ul>
-                    <li>
-                        <div class="conImg"><img src="img/ic-nofees.png"></div>
-                        <div class="floatLeft">
-                            <div class="head">No account fees and charges</div>
-                            <p>Enjoy the convenience of banking on your phone and no charges for online transactions</p>
-                        </div>
-                    </li>
-                    <li class="mr0">
-                        <div class="conImg"><img src="img/ic-riskfree.png"></div>
-                        <div class="floatLeft">
-                            <div class="head">Risk-free deposits</div>
-                            <p>Your money is safe with us. We invest deposits only in government bonds. None of your
-                                deposits will be converted in to risky assets.</p>
-                        </div>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <div class="conImg"><img src="img/ic-platinumbenefit.png"></div>
-                        <div class="floatLeft">
-                            <div class="head">VISA Debit Card</div>
-                            <p>Use your free virtual card to make online purchases across all merchants accepting VISA
-                                cards. You can order a physical debit card through your Paytm App</p>
-                        </div>
-                    </li>
-                    <li class="mr0">
-                        <div class="conImg"><img src="img/ic-interest.png"></div>
-                        <div class="floatLeft">
-                            <div class="head">Earn interest every month</div>
-                            <p>Earn an interest of 2.5% per annum paid every month</p>
-                            <!-- <div class="note">*w.e.f 23rd May 2021 – Savings Account Interest Rate will be 2.5%</div> -->
-                        </div>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <div class="conImg"> <img src="img/ic-passbook.png"></div>
-                        <div class="floatLeft">
-                            <div class="head">Real time updated Passbook</div>
-                            <p>View your transaction and balance in real time in Paytm Passbook</p>
-                        </div>
-                    </li>
-                    <li class="mr0">
-                        <div class="conImg"><img src="img/ic-secured.png"></div>
-                        <div class="floatLeft">
-                            <div class="head">Highly Secure</div>
-                            <p>Your account is secured with a special Paytm Passcode to ensure your account is safe</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!--<a href="#" class="but">Request an Invite <img src="img/rightarrowWhite.png"></a>-->
-        </div>
-
-        <!--div class="homepage-ads">
-    <h3>Go Digital, Go Secure!</h3>
-    <p>Follow these guidelines for a safe and seamless online payments experience.</p>
-    <div class="section">
-      <img src="img/adimg01.png" />
-      <img src="img/adimg02.png" />
-      <img src="img/adimg03.png" />
-    </div>
-  </div-->
-
-        <div id="reruestMain">
-            <div id="reruest">
-                <p>Open your Paytm Bank account today!</p>
-                <a href="AccountOpening.html" class="but">Click Here <img src="img/icmob_rightarrow_blue_lg.png"></a>
-            </div>
-        </div>
-
-        <div id="paytmCardMain">
-            <div id="paytmCard">
-                <h1>
-                    <p>Say hello to your</p>
-                    <p class="blueBG">Paytm Payments Bank Debit &amp; ATM Card</p>
-                </h1>
-                <div class="text">Every Paytm Payments Bank account holder will be issued a free Digital Debit Card at
-                    the time of account opening. Account holders can request for a physical Debit Card through their
-                    Paytm App</div>
-                <div class="cardContainer">
-                    <div class="divNLeft">
-                        <div class="listing">
-                            <ul>
-                                <li> <img src="img/product/internationally-accepted-icn.png">
-                                    <div class="head">Internationally accepted</div>
-                                    <p>Make effortless payments as you go exploring the world!</p>
-                                </li>
-                                <li> <img src="img/product/ic_contactless.svg">
-                                    <div class="head">Contactless transactions</div>
-                                    <p>Enjoy smart contactless Tap to Pay transactions.</p>
-                                </li>
-                                <li> <img src="img/product/cashback-offer-icn.png">
-                                    <div class="head">Cashback and offers</div>
-                                    <p>Enjoy discounts and cashbacks across a large number of merchants with your <a
-                                            href="https://www.visa.co.in/en_in/visa-offers-and-perks/"
-                                            target="_blank">Visa card</a></p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--<div class="divRight"><img src="img/ic_ppb_vdc.png"></div>-->
-                    <div class="divNLeft rightFloat">
-                        <div class="listing">
-                            <ul>
-                                <li> <img src="img/product/wide-acceptance-icn.png">
-                                    <div class="head">Wide acceptance</div>
-                                    <p>VISA is the largest acceptance network in the world</p>
-                                </li>
-                                <li> <img src="img/ic-withdraw.png">
-                                    <div class="head">Withdraw cash from any ATM</div>
-                                    <p>Withdraw cash at more than 2,00,000 ATMs across India &amp; Abroad</p>
-                                </li>
-                                <li> <img src="img/product/ic_trustSecurity.svg">
-                                    <div class="head">Trust and Security</div>
-                                    <p>Do safe and secure transactions 24x7</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="divCenter"><img src="img/ic_ppb_vdc.png"></div>
-                </div>
-            </div>
-        </div>
-        <!--<div id="midcontainer">
-		<div class="notification-bar">Dear Customer, First-time transfers from Paytm Wallet to Paytm Payments Bank will also be 4% w.e.f. August 26, 2018.</div>
-	</div>-->
-        <div id="queAns">
-            <h1>All your questions answered</h1>
-            <div class="half">
-                <div class="tab blue">
-                    <input id="tab-four" type="radio" name="tabs2">
-                    <label for="tab-four">How can I open a Paytm Payments Bank account?</label>
-                    <div class="tab-content">
-                        <p>Our account opening process is simple and completely digital. <a href="/AccountOpening"
-                                style="text-decoration:underline;">Click here</a> to know more. </p>
-                    </div>
-                </div>
-                <!--<div class="tab blue">
-      <input id="tab-five" type="radio" name="tabs2">
-      <label for="tab-five">What is a Rupay & Rupay card?</label>
-      <div class="tab-content">
-        <p>RuPay is an Indian domestic card scheme conceived and launched by the National Payments Corporation of India (NPCI).<br><br>
-        Your Paytm Payments Bank savings account comes with a Rupay card that you can use to make payments on all online platforms where debit cards are accepted.
-
-</p>
       </div>
-    </div>-->
-                <div class="tab blue">
-                    <input id="tab-six" type="radio" name="tabs2">
-                    <label for="tab-six">What is the procedure to complete my KYC?</label>
-                    <div class="tab-content">
+      <div id="midcontainer">
+        <h1>
+          <p>Join the Revolution.</p>
+          <p class="blueBG">Start your Digital Savings Account today!</p>
+        </h1>
+        <div class="text">
+          Paytm Payments Bank offers a Savings Account with no account opening
+          charges or minimum balance requirements. Keep upto Rs. 2 lac of
+          deposits and enjoy benefits like:
+        </div>
+        <div class="listing">
+          <ul>
+            <li>
+              <div class="conImg">
+                <img src="img\ic-nofees.png" />
+              </div>
+              <div class="floatLeft">
+                <div class="head">No account fees and charges</div>
+                <p>
+                  Enjoy the convenience of banking on your phone and no charges
+                  for online transactions
+                </p>
+              </div>
+            </li>
+            <li class="mr0">
+              <div class="conImg"><img src="img/ic-riskfree.png" /></div>
+              <div class="floatLeft">
+                <div class="head">Risk-free deposits</div>
+                <p>
+                  Your money is safe with us. We invest deposits only in
+                  government bonds. None of your deposits will be converted in
+                  to risky assets.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div class="conImg"><img src="img/ic-platinumbenefit.png" /></div>
+              <div class="floatLeft">
+                <div class="head">VISA Debit Card</div>
+                <p>
+                  Use your free virtual card to make online purchases across all
+                  merchants accepting VISA cards. You can order a physical debit
+                  card through your Paytm App
+                </p>
+              </div>
+            </li>
+            <li class="mr0">
+              <div class="conImg"><img src="img\ic-interest.png" /></div>
+              <div class="floatLeft">
+                <div class="head">Earn interest every month</div>
+                <p>Earn an interest of 2.5% per annum paid every month</p>
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div class="conImg"><img src="img/ic-passbook.png" /></div>
+              <div class="floatLeft">
+                <div class="head">Real time updated Passbook</div>
+                <p>
+                  View your transaction and balance in real time in Paytm
+                  Passbook
+                </p>
+              </div>
+            </li>
+            <li class="mr0">
+              <div class="conImg"><img src="img/ic-secured.png" /></div>
+              <div class="floatLeft">
+                <div class="head">Highly Secure</div>
+                <p>
+                  Your account is secured with a special Paytm Passcode to
+                  ensure your account is safe
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-                        <p>To complete full KYC of your PPBL account, you need to complete in-person verification by
-                            visiting a nearby KYC center. To become a KYC user, please follow the link below:</p>
-                        <p><a
-                                href="/Policies/non-aadhaar-kyc-point">https://www.paytmbank.com/Policies/non-aadhaar-kyc-point</a>.
-                        </p>
-                    </div>
-                </div>
-                <div class="tab blue">
-                    <input id="tab-seven" type="radio" name="tabs2">
-                    <label for="tab-seven">How can I apply for a Debit &amp; ATM Card?</label>
-                    <div class="tab-content">
-                        <p>On opening savings account, you will get a digital card. To apply for a physical Card, kindly
-                            follow the steps below</p>
-                        <ul>
-                            <li>Launch your Paytm app</li>
-                            <li>Tap on the ‘Bank’ icon at the bottom right corner of your screen</li>
-                            <li>Scroll down and choose the option ‘Digital Debit Card’</li>
-                            <li>Choose the option ‘Request ATM Card’</li>
-                            <li>Select your delivery address and click on ‘Proceed to Pay’</li>
-                            <li>Your order will be placed once the payment is successful.</li>
-                        </ul>
-                        <p>You will be able to track the delivery status of your card through your app</p>
-                    </div>
-                </div>
-                <!--<div class="tab blue">
+      <div id="reruestMain">
+        <div id="reruest">
+          <p>Open your Paytm Bank account today!</p>
+          <a href="AccountOpening.html" class="but"
+            >Click Here <img src="img/icmob_rightarrow_blue_lg.png"
+          /></a>
+        </div>
+      </div>
+
+      <div id="paytmCardMain">
+        <div id="paytmCard">
+          <h1>
+            <p>Say hello to your</p>
+            <p class="blueBG">Paytm Payments Bank Debit &amp; ATM Card</p>
+          </h1>
+          <div class="text">
+            Every Paytm Payments Bank account holder will be issued a free
+            Digital Debit Card at the time of account opening. Account holders
+            can request for a physical Debit Card through their Paytm App
+          </div>
+          <div class="cardContainer">
+            <div class="divNLeft">
+              <div class="listing">
+                <ul>
+                  <li>
+                    <img src="img/product/internationally-accepted-icn.png" />
+                    <div class="head">Internationally accepted</div>
+                    <p>
+                      Make effortless payments as you go exploring the world!
+                    </p>
+                  </li>
+                  <li>
+                    <img src="img/product/ic_contactless.svg" />
+                    <div class="head">Contactless transactions</div>
+                    <p>Enjoy smart contactless Tap to Pay transactions.</p>
+                  </li>
+                  <li>
+                    <img src="img/product/cashback-offer-icn.png" />
+                    <div class="head">Cashback and offers</div>
+                    <p>
+                      Enjoy discounts and cashbacks across a large number of
+                      merchants with your
+                      <a
+                        href="https://www.visa.co.in/en_in/visa-offers-and-perks/"
+                        target="_blank"
+                        >Visa card</a
+                      >
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="divNLeft rightFloat">
+              <div class="listing">
+                <ul>
+                  <li>
+                    <img src="img/product/wide-acceptance-icn.png" />
+                    <div class="head">Wide acceptance</div>
+                    <p>VISA is the largest acceptance network in the world</p>
+                  </li>
+                  <li>
+                    <img src="img/ic-withdraw.png" />
+                    <div class="head">Withdraw cash from any ATM</div>
+                    <p>
+                      Withdraw cash at more than 2,00,000 ATMs across India
+                      &amp; Abroad
+                    </p>
+                  </li>
+                  <li>
+                    <img src="img/product/ic_trustSecurity.svg" />
+                    <div class="head">Trust and Security</div>
+                    <p>Do safe and secure transactions 24x7</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="divCenter"><img src="img/ic_ppb_vdc.png" /></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="queAns">
+        <h1>All your questions answered</h1>
+        <div class="half">
+          <div class="tab blue">
+            <input id="tab-four" type="radio" name="tabs2" />
+            <label for="tab-four"
+              >How can I open a Paytm Payments Bank account?</label
+            >
+            <div class="tab-content">
+              <p>
+                Our account opening process is simple and completely digital.
+                <a href="/AccountOpening" style="text-decoration: underline"
+                  >Click here</a
+                >
+                to know more.
+              </p>
+            </div>
+          </div>
+          <div class="tab blue">
+            <input id="tab-six" type="radio" name="tabs2" />
+            <label for="tab-six"
+              >What is the procedure to complete my KYC?</label
+            >
+            <div class="tab-content">
+              <p>
+                To complete full KYC of your PPBL account, you need to complete
+                in-person verification by visiting a nearby KYC center. To
+                become a KYC user, please follow the link below:
+              </p>
+              <p>
+                <a href="/Policies/non-aadhaar-kyc-point"
+                  >https://www.paytmbank.com/Policies/non-aadhaar-kyc-point</a
+                >.
+              </p>
+            </div>
+          </div>
+          <div class="tab blue">
+            <input id="tab-seven" type="radio" name="tabs2" />
+            <label for="tab-seven"
+              >How can I apply for a Debit &amp; ATM Card?</label
+            >
+            <div class="tab-content">
+              <p>
+                On opening savings account, you will get a digital card. To
+                apply for a physical Card, kindly follow the steps below
+              </p>
+              <ul>
+                <li>Launch your Paytm app</li>
+                <li>
+                  Tap on the ‘Bank’ icon at the bottom right corner of your
+                  screen
+                </li>
+                <li>Scroll down and choose the option ‘Digital Debit Card’</li>
+                <li>Choose the option ‘Request ATM Card’</li>
+                <li>
+                  Select your delivery address and click on ‘Proceed to Pay’
+                </li>
+                <li>
+                  Your order will be placed once the payment is successful.
+                </li>
+              </ul>
+              <p>
+                You will be able to track the delivery status of your card
+                through your app
+              </p>
+            </div>
+          </div>
+          <!--<div class="tab blue">
       <input id="tab-eight" type="radio" name="tabs2">
       <label for="tab-eight">Where are Paytm Payments Bank's branches?</label>
       <div class="tab-content">
@@ -851,319 +677,69 @@
           Uttar Pradesh </p>
       </div>
     </div>-->
-            </div>
-            <div class="link">Have more questions? <span><a href="/faqs">Read FAQs</a></span></div>
         </div>
+        <div class="link">
+          Have more questions? <span><a href="/faqs">Read FAQs</a></span>
+        </div>
+      </div>
     </div>
 
-    <div class="footer_include">
-        <link rel="stylesheet" type="text/css" href="/includes/footer.css">
-        <div class="footer">
-            <div class="band"></div>
-            <div class="footer-container">
-                <div class="footer-nav-section f-section-1">
-                    <div class="footer-nav-block">
-                        <h1 class="heading-11">
-                            <a href="#" class="link-3">Products</a>
-                        </h1>
-                        <ul role="list" class="list-3 w-list-unstyled">
-                            <li>
-                                <a href="/products#SavingsAccount" class="link-4">Savings Bank Account</a>
-                            </li>
-                            <li>
-                                <a href="/business-banking" class="link-4">Business Account</a>
-                            </li>
-                            <li>
-                                <a href="/products#paytmCardMain" class="link-4">Debit &amp; ATM Card</a>
-                            </li>
-                            <li>
-                                <a href="/products#paytmWallet" class="link-4">Paytm Wallet</a>
-                            </li>
-                            <li>
-                                <a href="/products#makePayment" class="link-4">Payments</a>
-                            </li>
-                            <li>
-                                <a href="/products#foodWallet" class="link-4">Food Wallet</a>
-                            </li>
-                            <li>
-                                <a href="/products#nach" class="link-4">NACH/Recurring</a>
-                            </li>
-                            <li>
-                                <a href="/products#fastag" class="link-4">Fastag</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-nav-block">
-                        <div class="footer-social">
-                            <a href="#" class="w-inline-block"><img src="/img/common/fb-icn.svg" loading="lazy"
-                                    alt=""></a>
-                            <a href="#" class="w-inline-block"><img src="/img/common/insta-icn.svg" loading="lazy"
-                                    alt=""></a>
-                            <a href="#" class="w-inline-block"><img src="/img/common/youtube-icn.svg" loading="lazy"
-                                    alt=""></a>
-                            <a href="#" class="w-inline-block"><img src="/img/common/twt-icn.svg" loading="lazy"
-                                    alt=""></a>
-                        </div>
-                        <h1 class="heading-11">Corporate Address</h1>
-                        <div class="text-block-6">V.J. Business Towers, Sector 125, Noida, Uttar Pradesh 201303</div>
-                        <div class="text-block-6 copy-text">© Copyright <span class="cryear">2023</span>, Paytm Payments
-                            Bank</div>
-                    </div>
-                </div>
-                <div class="footer-nav-section f-section-2">
-                    <div class="footer-nav-block">
-                        <h1 class="heading-11">Company</h1>
-                        <ul role="list" class="list-3 w-list-unstyled">
-                            <li>
-                                <a href="/about" class="link-4">About Us</a>
-                            </li>
-                            <li>
-                                <a href="/faqs" class="link-4">FAQs</a>
-                            </li>
-                            <li>
-                                <a href="https://www.paytmbank.com/blog/" class="link-4">Blogs</a>
-                            </li>
-                            <li>
-                                <a href="/report-a-fraud" class="link-4">Report a Fraud</a>
-                            </li>
-                            <li>
-                                <a href="/contact" class="link-4">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/non-aadhaar-kyc-point" class="link-4">Active KYC Points</a>
-                            </li>
-                            <li>
-                                <a href="/bca/registration-form" class="link-4">Register as a KYC Point</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/terminated-business-correspondents" class="link-4">Terminated KYC
-                                    Points</a>
-                            </li>
-                            <li>
-                                <a href="https://jobs.lever.co/paytmbank" target="_blank" class="link-4">Careers</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-nav-block">
-                        <h1 class="heading-11">Information</h1>
-                        <ul role="list" class="list-3 w-list-unstyled">
-                            <li>
-                                <a href="/Terms&amp;Conditions" class="link-4">Terms &amp; Conditions</a>
-                            </li>
-                            <li>
-                                <a href="/Disclaimer" class="link-4">Disclaimers</a>
-                            </li>
-                            <li>
-                                <a href="/PrivacyPolicy" class="link-4">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a href="/notices" class="link-4">Important Notices</a>
-                            </li>
-                            <li>
-                                <a href="/Disclosure" class="link-4">Regulatory Disclosure</a>
-                            </li>
-                            <li>
-                                <a href="/safety" class="link-4">Safety &amp; Security</a>
-                            </li>
-                            <li><span class="link-4" onclick="showDiv()">RBI kehta hai</span></li>
-                        </ul>
-                    </div>
-                    <div class="footer-nav-block">
-                        <h1 class="heading-11">CSR</h1>
-                        <ul role="list" class="list-3 w-list-unstyled">
-                            <li>
-                                <a href="/ashakiran" class="link-4">AshaKiran</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-nav-section f-section-3">
-                    <div class="footer-nav-block">
-                        <h1 class="heading-11">Form Center</h1>
-                        <ul role="list" class="list-3 w-list-unstyled">
-                            <li>
-                                <a class="trigger link-4" href="javascript:void(0)">Deceased Depositors Claim Form</a>
-                                <div class="modal">
-                                    <div class="modal-content">
-                                        <div class="line-hr">
-                                            <h4>Deceased Depositors Claim Form</h4>
-                                            <span class="close-button"></span>
-                                        </div>
-                                        <div class="modal-inner-content">
-                                            <div class="nominee-case">
-                                                <p><strong>For Nominee Cases</strong></p>
-                                                <p><a href="/Forms/Nominee-forms.pdf">Nominee Cases</a></p>
-                                            </div>
-
-
-                                            <div>
-                                                <p><strong>For Non Nominee Cases</strong></p>
-                                                <p><a href="/Forms/Legal-Heir-1K.pdf">Cases where the cumulative balance
-                                                        in wallet and account does not exceed Rs 1000</a></p>
-                                                <p><a href="/Forms/Legal-Heir-5K.pdf">Cases where the cumulative balance
-                                                        in wallet and account exceeds Rs 1000 but does not exceed Rs
-                                                        5000</a></p>
-                                                <p><a href="/Forms/Legal-Heir-5K+.pdf">Cases where the cumulative
-                                                        balance in wallet and account exceeds Rs 5000</a></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <a href="/Forms/Death-Claim-Forms.pdf" class="link-4">Deceased Depositors Claim Form</a> -->
-                            </li>
-
-                            <li>
-                                <a href="/Forms/customer-grievance-advice.pdf" class="link-4">Customer Grievance Advice
-                                    Form</a>
-                            </li>
-                            <li>
-                                <a href="/Forms/ATM-cum-Debit-Card-Dispute-Form.pdf" class="link-4">ATM cum Debit Card
-                                    Dispute Form</a>
-                            </li>
-                            <li>
-                                <a href="/Forms/process-for-claiming-the-unclaimed-deposit-activating-the-inoperative-inactive-accounts.pdf"
-                                    class="link-4">Unclaimed Deposit Claim Form</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-nav-block">
-                        <h1 class="heading-11">Policies</h1>
-                        <ul role="list" class="list-3 w-list-unstyled">
-                            <li>
-                                <a href="/Policies/Citizen's-Charter-for-Paytm-Payments-Bank" class="link-4">Citizen
-                                    charter</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/Comprehensive-Deposit-Policy-for-Paytm-Payments-Bank"
-                                    class="link-4">Comprehensive Deposit Policy</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/Customer-Compensation-Policy-for-Paytm-Payments-Bank"
-                                    class="link-4">Customer Compensation Policy</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/Customer-Grievance-Redressal-Policy-for-Paytm-Payments-Bank"
-                                    class="link-4">Customer Grievance Redressal Policy</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/charter-of-customer-rights"
-                                    class="link-4">Charter&nbsp;of&nbsp;Customer&nbsp;Rights</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/whistle-blower-policy"
-                                    class="link-4">Whistle&nbsp;Blower&nbsp;Policy</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/code-of-commitment" class="link-4">Code of Commitment</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/aadhaar-data-privacy-policy"
-                                    class="link-4">Aadhaar&nbsp;Data&nbsp;Privacy&nbsp;Policy</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/doorstep_banking_policy.pdf"
-                                    class="link-4">Doorstep&nbsp;Banking&nbsp;Policy</a>
-                            </li>
-                            <li>
-                                <a href="/fraud-prevention" class="link-4">Fraud Prevention</a>
-                            </li>
-                            <li>
-                                <a href="/Policies/Policy-on-appointment-of-Statutory-Auditor.pdf" class="link-4">Policy
-                                    on Appointment of Statutory Auditor</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-illustration"><img src="/img/common/footer-illustration-v2.png" height="294px"
-                    width="100%" loading="lazy" sizes="100vw"
-                    srcset="/img/common/footer-illustration-v2-p-500.png 500w, /img/common/footer-illustration-v2-p-800.png 800w, /img/common/footer-illustration-v2.png 2880w"
-                    alt="" class="image-8"><img src="/img/common/footer-illustration-mob-v4.png" loading="lazy" alt=""
-                    class="image-9"></div>
-            <div class="band thic-band"></div>
-
-            <div id="notice-popup" class="sm-popup">
-                <div class="sm-popup-close" onclick="hideDiv()"></div>
-                <div class="sm-popup-content">
-                    <p>By clicking on the hyper-link, you will be leaving Paytmbank.com and entering website operated by
-                        other parties. Paytm Payments Bank does not control or endorse such websites, and bears no
-                        responsibility for them.</p>
-                    <a href="https://www.rbi.org.in/commonperson/English/Scripts/rbikehtahai.aspx">OK</a>
-                </div>
-            </div>
-            <div id="popup-bg" class="sm-popup-bg"></div>
-
-        </div>
-        <script type="text/javascript">
-
-            var currentYear = new Date().getFullYear();
-            var cyear = document.getElementsByClassName('cryear');
-            for (var i = 0; i < cyear.length; i++) {
-                cyear[i].innerHTML = currentYear;
-            }
-
-            function showDiv() {
-                document.getElementById('notice-popup').style.display = 'block';
-                document.getElementById('popup-bg').style.display = 'block';
-            }
-            function hideDiv() {
-                document.getElementById('notice-popup').style.display = 'none';
-                document.getElementById('popup-bg').style.display = 'none';
-            }
-
-
-
-            const modal = document.querySelector(".modal");
-            const body = document.querySelector("body");
-            const trigger = document.querySelector(".trigger");
-            const closeButton = document.querySelector(".close-button");
-
-            function toggleModal() {
-                modal.classList.toggle("show-modal");
-                body.classList.toggle("body-scroll");
-            }
-
-            function windowOnClick(event) {
-                if (event.target === modal) {
-                    toggleModal();
-
-                }
-            }
-
-            trigger.addEventListener("click", toggleModal);
-            closeButton.addEventListener("click", toggleModal);
-            window.addEventListener("click", windowOnClick);
-        </script>
+    <div class="footer-main">
+      <link rel="stylesheet" type="text/css" href="includes/footer.css" />
+      <div class="ft__left">
+        <img src="img/common/citilogo.png" alt="" srcset="" />
+        <h2 class="ft__text2">Our Priority Partner</h2>
+        <p class="ft__p">Be with the leader & connect the world!</p>
+      </div>
+      <div class="ft__mid">
+        <h5 class="ft__text1">About Us</h5>
+        <a href="index.html"><p class="ft__text">Home</p></a>
+        <p class="ft__text">About</p>
+      </div>
+      <div class="ft__right">
+        <h5 class="ft__text1">Support</h5>
+        <p class="ft__text">Help</p>
+        <p class="ft__text">Contact</p>
+      </div>
     </div>
+    <footer>
+      <div class="footer__copyright">
+        <small>All rights reserved @ 2023</small>
+      </div>
+    </footer>
 
     <div class="modal rbi_ios">
-        <div class="modal-content">
-            <span class="close-button"></span>
-            <div class="slideshow-container">
-                <div class="mySlides fade" style="display: block;">
-                    <img src="business-banking/images/RBI-IOS-English.jpg">
-                </div>
-                <div class="mySlides fade" style="display: none;">
-                    <img src="business-banking/images/Nationwide-awareness-poster.jpg">
-                </div>
-                <div class="mySlides fade" style="display: none;">
-                    <img src="business-banking/images/RBI-IOS-Hindi.jpg">
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                <a id="next" class="next" onclick="plusSlides(1)">❯</a>
-            </div>
-            <div class="dots">
-                <span class="dot active" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
+      <div class="modal-content">
+        <span class="close-button"></span>
+        <div class="slideshow-container">
+          <div class="mySlides fade" style="display: block">
+            <img src="business-banking/images/RBI-IOS-English.jpg" />
+          </div>
+          <div class="mySlides fade" style="display: none">
+            <img
+              src="business-banking/images/Nationwide-awareness-poster.jpg"
+            />
+          </div>
+          <div class="mySlides fade" style="display: none">
+            <img src="business-banking/images/RBI-IOS-Hindi.jpg" />
+          </div>
+          <a class="prev" onclick="plusSlides(-1)">❮</a>
+          <a id="next" class="next" onclick="plusSlides(1)">❯</a>
         </div>
+        <div class="dots">
+          <span class="dot active" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
     </div>
 
     <script>
-        window.paytm = window.paytm || { aQ: [], analytics: {} };
-        window.paytm.analytics.addEvent = window.paytm.analytics.addEvent || function (event) {
-            window.paytm.aQ.push(event);
+      window.paytm = window.paytm || { aQ: [], analytics: {} };
+      window.paytm.analytics.addEvent =
+        window.paytm.analytics.addEvent ||
+        function (event) {
+          window.paytm.aQ.push(event);
         };
     </script>
     <script src="/js/jquery-3.6.0.min.js"></script>
@@ -1173,92 +749,96 @@
 
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('.tab.blue label').on('click', function () {
-                var isChecked = $(this).prev().hasClass('checked');
-                $('.tab.blue input').removeClass('checked');
-                !isChecked ? $(this).prev().addClass('checked') : '';
-            });
+      $(document).ready(function () {
+        $(".tab.blue label").on("click", function () {
+          var isChecked = $(this).prev().hasClass("checked");
+          $(".tab.blue input").removeClass("checked");
+          !isChecked ? $(this).prev().addClass("checked") : "";
         });
-        window.switchIn = function () {
-            $('.text1').fadeToggle(function () {
-                $('.text2').fadeToggle(function () {
-                    setTimeout(function () { window.switchOut(); }, 2000);
-                });
-            });
-
-        }
-
-        window.switchOut = function () {
-            $('.text2').fadeToggle(function () {
-                $('.text1').fadeToggle(function () {
-                    setTimeout(function () { window.switchIn(); }, 2000);
-                });
-            });
-
-        }
-
-        setTimeout(function () { window.switchIn(); }, 2000);
-
-
-        var currentYear = new Date().getFullYear();
-        var cyear = document.getElementsByClassName('cryear');
-        for (var i = 0; i < cyear.length; i++) {
-            cyear[i].innerHTML = currentYear;
-        }
-
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'event': "pageViewLoad",
-            'pageViewPath': window.location.pathname
+      });
+      window.switchIn = function () {
+        $(".text1").fadeToggle(function () {
+          $(".text2").fadeToggle(function () {
+            setTimeout(function () {
+              window.switchOut();
+            }, 2000);
+          });
         });
+      };
 
-        const modalrbi = document.querySelector(".modal");
-        const bodyrbi = document.querySelector("body");
-        const triggerrbi = document.querySelector(".trigger");
-        const closeButtonrbi = document.querySelector(".close-button");
-        toggleModalrbi()
-        function toggleModalrbi() {
-            modalrbi.classList.toggle("show-modal");
-            bodyrbi.classList.toggle("body-scroll");
-        }
-        function windowOnClickrbi(event) {
-            if (event.target === modalrbi) {
-                toggleModalrbi();
-            }
-        }
-        closeButtonrbi.addEventListener("click", toggleModalrbi);
-        window.addEventListener("click", windowOnClickrbi);
+      window.switchOut = function () {
+        $(".text2").fadeToggle(function () {
+          $(".text1").fadeToggle(function () {
+            setTimeout(function () {
+              window.switchIn();
+            }, 2000);
+          });
+        });
+      };
 
-        let slideIndex = 1;
-        showSlides(slideIndex);
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
+      setTimeout(function () {
+        window.switchIn();
+      }, 2000);
+
+      var currentYear = new Date().getFullYear();
+      var cyear = document.getElementsByClassName("cryear");
+      for (var i = 0; i < cyear.length; i++) {
+        cyear[i].innerHTML = currentYear;
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "pageViewLoad",
+        pageViewPath: window.location.pathname,
+      });
+
+      const modalrbi = document.querySelector(".modal");
+      const bodyrbi = document.querySelector("body");
+      const triggerrbi = document.querySelector(".trigger");
+      const closeButtonrbi = document.querySelector(".close-button");
+      toggleModalrbi();
+      function toggleModalrbi() {
+        modalrbi.classList.toggle("show-modal");
+        bodyrbi.classList.toggle("body-scroll");
+      }
+      function windowOnClickrbi(event) {
+        if (event.target === modalrbi) {
+          toggleModalrbi();
         }
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
+      }
+      closeButtonrbi.addEventListener("click", toggleModalrbi);
+      window.addEventListener("click", windowOnClickrbi);
+
+      let slideIndex = 1;
+      showSlides(slideIndex);
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
         }
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-        };
-        var autoplayInterval = setInterval(function () {
-            document.getElementById("next").click();
-        }, 3000);
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+      var autoplayInterval = setInterval(function () {
+        document.getElementById("next").click();
+      }, 3000);
     </script>
-
-
-</body>
-
+  </body>
 </html>

@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Gilroy ExtraBlack";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Gilroy ExtraBlack"),
+    url("/fonts/gilroy/Gilroy-ExtraBold.otf") format("otf");
+}
+
+@font-face {
+  font-family: "Gilroy Light";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Gilroy Light"),
+    url("/fonts/gilroy/Gilroy-Light.otf") format("woff");
+}

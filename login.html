@@ -44,7 +44,7 @@
       }
       .main {
         height: 100vh;
-        display: flex;
+        display: fixed;
         flex-direction: column;
         justify-content: space-between;
       }
@@ -64,6 +64,7 @@
       .content-left {
         background: #002970;
         width: 620px;
+        height: 85vh;
       }
       .content-left__info {
         margin-left: 64px;
@@ -71,7 +72,7 @@
         color: #fff;
       }
       .content-left__item {
-        margin-top: 6vw;
+        margin-top: 3vw;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -103,6 +104,7 @@
         line-height: 19.1px;
         padding: 2px;
       }
+
       .content-left__header {
         font-size: 28px;
         margin-top: 44px;
@@ -129,17 +131,13 @@
         font-weight: 700;
         letter-spacing: 0.5px;
       }
-      .container__right {
-        background: white;
-        height: 90vh;
-        width: 67%;
+      .content-right {
+        flex: 1;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         justify-content: flex-start;
-        gap: 3vh;
-        padding: 6.5vw 11vw;
-        border-radius: 1rem;
+        margin-top: 44px;
       }
       .iframe {
         width: 620px;
@@ -193,13 +191,6 @@
         position: relative;
         overflow-x: hidden;
       }
-      form input {
-        height: 2vw;
-        background-color: #f5f4ff;
-        border: none;
-        border-radius: 10px;
-        padding: 6%;
-      }
       .marquee p {
         position: absolute;
         height: 100%;
@@ -222,7 +213,7 @@
         color: #00b9f5;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
       }
-      .btn .btn-outline-success {
+      .login-switch-button .switch-login-text {
         cursor: pointer;
       }
       @keyframes scroll-left {
@@ -252,18 +243,17 @@
         .login-switch-button {
           width: 100%;
         }
-        .container__right {
-          background: white;
-          height: 90vh;
-          width: 67%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 3vh;
-          padding: 5.5vw 1vw;
-          border-radius: 1rem;
-        }
+      }
+      .container__right {
+        background: white;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 3vh;
+        padding: 2.5vw 15vw;
+        border-radius: 1rem;
       }
 
       .main-form {
@@ -272,7 +262,11 @@
         gap: 3vh;
       }
       form input {
-        padding: 4%;
+        height: 2vw;
+        background-color: #f5f4ff;
+        border: none;
+        border-radius: 10px;
+        padding: 6%;
       }
       .form-element {
         display: flex;
